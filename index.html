@@ -31,6 +31,7 @@
                   name="tanggal"
                   id="Tanggal"
                   placeholder="Tanggal"
+                  required
                 />
                 <label for="Hari" class="form-label mb-1">Hari :</label>
                 <input
@@ -39,6 +40,7 @@
                   name="hari"
                   id="Hari"
                   placeholder="Hari"
+                  readonly
                 />
                 <label for="Nama" class="form-label mb-1">Nama :</label>
                 <input
@@ -46,7 +48,8 @@
                   class="form-control mb-3"
                   name="nama"
                   id="Nama"
-                  placeholder="Nama"
+                  placeholder="Nama1, Nama2, ..."
+                  required
                 />
                 <label for="Keterangan" class="form-label mb-1"
                   >Keterangan :</label
@@ -57,8 +60,13 @@
                   name="ket"
                   id="keterangan"
                   placeholder="Keterangan"
+                  required
                 />
-                <button type="submit" class="btn btn-primary mb-3">
+                <button
+                  type="submit"
+                  id="make-url"
+                  class="btn btn-primary mb-3"
+                >
                   Make it!
                 </button>
               </form>
@@ -89,12 +97,13 @@
                 <tbody id="body-table"></tbody>
                 <tfoot>
                   <tr>
-                    <td colspan="3" class="text-center">--end--</td>
+                    <td colspan="3" class="text-center">-- end --</td>
                   </tr>
                 </tfoot>
               </table>
-
-              <button id="print" class="btn btn-danger">Print</button>
+              <div class="d-flex justify-content-end">
+                <button id="print" class="btn btn-danger ms-auto">Print</button>
+              </div>
             </div>
           </div>
         </div>

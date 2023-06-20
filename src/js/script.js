@@ -9,21 +9,26 @@ var hari = urlparam.get("hari");
 var nama = urlparam.get("nama");
 var ket = urlparam.get("ket");
 
-$("#formulir").hide();
+if (hari == null || nama == null || ket == null) {
+  $("#formulir").show();
+} else {
+  $("#formulir").hide();
+}
 
-$("#dates").append(`
+if (nama != null) {
+  $("#dates").append(`
     <th class="fw-bold" colspan="3">${hari}, ${tanggal}</th>
 `);
-
-nama = nama.split(",");
-for (var i = 0; i < nama.length; i++) {
-  $("#body-table").append(
-    `<tr>
+  nama = nama.split(",");
+  for (var i = 0; i < nama.length; i++) {
+    $("#body-table").append(
+      `<tr>
         <td>${i + 1}</td>
         <td class="text-capitalize">${nama[i].toLocaleUpperCase()}</td>
         <td class="text-center">${ket}</td>
     </tr>`
-  );
+    );
+  }
 }
 
 // print using jspdf
@@ -42,5 +47,30 @@ print.on("click", () => {
     footStyles: { halign: "center" },
   });
 
-  doc.save(`absens-hes2b-${tanggal}.pdf`);
+  doc.save(`absens-hes2b-${tanggal}-${ket}.pdf`);
+});
+
+function getDayName(dateStr, locale) {
+  var date = new Date(dateStr);
+  return date.toLocaleDateString(locale, { weekday: "long" });
+}
+
+// make ready function
+$(document).ready(function () {
+  $(document.body).on("change", "#Tanggal", function () {
+    var tgl = $("#Tanggal").val();
+    var hr = getDayName(tgl, "id-ID");
+    $("#Hari").val(hr);
+  });
+
+  // make url from form
+  $("#make-url").on("click", () => {
+    var tanggal = $("#tanggal").val();
+    var hari = $("#hari").val();
+    var nama = $("#nama").val();
+    var ket = $("#ket").val();
+
+    var url = `?tanggal=${tanggal}&hari=${hari}&nama=${nama}&ket=${ket}`;
+    document.location.href = url;
+  });
 });
