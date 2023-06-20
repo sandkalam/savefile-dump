@@ -22,8 +22,10 @@
       <div id="content">
         <div class="container">
           <div class="row">
-            <div class="col-8">
+            <div class="col p-3 mb-3">
               <form action="" id="formulir" class="mb-3">
+                <h3 class="text-center">Formulir</h3>
+
                 <label for="Tanggal" class="form-label mb-1">Tanggal :</label>
                 <input
                   type="date"
@@ -54,14 +56,17 @@
                 <label for="Keterangan" class="form-label mb-1"
                   >Keterangan :</label
                 >
-                <input
-                  type="text"
-                  class="form-control mb-3"
+
+                <select
                   name="ket"
+                  class="form-select mb-3"
                   id="keterangan"
-                  placeholder="Keterangan"
                   required
-                />
+                >
+                  <option value="Hadir">Hadir</option>
+                  <option value="Kerja">Kerja</option>
+                  <option value="Sakit">Sakit</option>
+                </select>
                 <button
                   type="submit"
                   id="make-url"
@@ -72,38 +77,47 @@
               </form>
             </div>
           </div>
-          <div class="row">
-            <div class="col">
-              <table id="result-table" class="table table-hover">
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <table id="result-table" class="table table-hover">
+              <thead>
+                <tr>
+                  <th colspan="3" class="text-center"><h3>ABSENSI</h3></th>
+                </tr>
+                <tr>
+                  <th colspan="3" class="text-center">
+                    Hukum Ekonomi Syariah 2B
+                  </th>
+                </tr>
+                <tr id="dates"></tr>
                 <thead>
-                  <tr>
-                    <th colspan="3" class="text-center"><h3>ABSENSI</h3></th>
+                  <tr class="table-success bg-hijau">
+                    <th>No.</th>
+                    <th>Nama</th>
+                    <th>Keterangan</th>
                   </tr>
-                  <tr>
-                    <th colspan="3" class="text-center">
-                      Hukum Ekonomi Syariah 2B
-                    </th>
-                  </tr>
-                  <tr id="dates"></tr>
-                  <thead>
-                    <tr>
-                      <th>No.</th>
-                      <th>Nama</th>
-                      <th>Keterangan</th>
-                    </tr>
-                  </thead>
                 </thead>
+              </thead>
 
-                <tbody id="body-table"></tbody>
-                <tfoot>
-                  <tr>
-                    <td colspan="3" class="text-center">-- end --</td>
-                  </tr>
-                </tfoot>
-              </table>
-              <div class="d-flex justify-content-end">
-                <button id="print" class="btn btn-danger ms-auto">Print</button>
-              </div>
+              <tbody id="body-table"></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="3" class="text-center">-- end --</td>
+                </tr>
+              </tfoot>
+            </table>
+            <div class="d-flex justify-content-end">
+              <button
+                id="cetak"
+                class="btn btn-danger ms-auto"
+                onclick="window.print()"
+              >
+                Cetak
+              </button>
+              <button id="print" class="btn btn-danger ms-auto" hidden>
+                Print
+              </button>
             </div>
           </div>
         </div>
@@ -120,8 +134,8 @@
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://unpkg.com/jspdf-autotable@3.5.29/dist/jspdf.plugin.autotable.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/jspdf-autotable@3.5.29/dist/jspdf.plugin.autotable.js"></script> -->
     <script src="src/js/bootstrap.bundle.min.js"></script>
     <script src="src/js/script.js"></script>
   </body>

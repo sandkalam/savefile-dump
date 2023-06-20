@@ -9,8 +9,9 @@ var hari = urlparam.get("hari");
 var nama = urlparam.get("nama");
 var ket = urlparam.get("ket");
 
-if (hari == null || nama == null || ket == null) {
+if (hari == null || nama == null || ket == null || tanggal == "") {
   $("#formulir").show();
+  // $("#cetak").hide();
 } else {
   $("#formulir").hide();
 }
@@ -32,23 +33,23 @@ if (nama != null) {
 }
 
 // print using jspdf
-const print = $("#print");
-const { jsPDF } = window.jspdf;
+// const printarea = $("#print");
+// const { jsPDF } = window.jspdf;
 
-print.on("click", () => {
-  const doc = new jsPDF();
+// printarea.on("click", () => {
+//   const doc = new jsPDF();
 
-  doc.autoTable({
-    html: "#result-table",
-    theme: "grid",
-    headStyles: { halign: "center", font: "helvetica" },
-    styles: { font: "times" },
-    columnStyles: { 0: { halign: "center" }, 2: { halign: "center" } },
-    footStyles: { halign: "center" },
-  });
+//   doc.autoTable({
+//     html: "#result-table",
+//     theme: "grid",
+//     headStyles: { halign: "center", font: "helvetica" },
+//     styles: { font: "times" },
+//     columnStyles: { 0: { halign: "center" }, 2: { halign: "center" } },
+//     footStyles: { halign: "center" },
+//   });
 
-  doc.save(`absens-hes2b-${tanggal}-${ket}.pdf`);
-});
+//   doc.save(`absens-hes2b-${tanggal}-${ket}.pdf`);
+// });
 
 function getDayName(dateStr, locale) {
   var date = new Date(dateStr);
