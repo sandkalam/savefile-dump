@@ -57,4 +57,5 @@ $(document).ready(function () {
 
 function printName() {
   document.title = `Absensi-HES2B-${ket}-${tanggal}`;
+  window.print();
 }
