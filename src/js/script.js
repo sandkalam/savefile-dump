@@ -1,9 +1,7 @@
-// localhost:8000/?tanggal=06%2F24%2F2023&?hari=Sabtu&?nama=Syaiful%20Imam%20Asdit%20%2C%20IVAN%20MAFTUHAN%20%2C%20devi%20lintang%20pratiwi&?ket=Kerja
-
 // ambil parameter
 var query = window.location.search;
 var urlparam = new URLSearchParams(query);
-// pecah
+// dipecah
 var tanggal = urlparam.get("tanggal");
 var hari = urlparam.get("hari");
 var nama = urlparam.get("nama");
@@ -11,7 +9,6 @@ var ket = urlparam.get("ket");
 
 if (hari == null || nama == null || ket == null || tanggal == "") {
   $("#formulir").show();
-  // $("#cetak").hide();
 } else {
   $("#formulir").hide();
 }
@@ -25,32 +22,14 @@ if (nama != null) {
     $("#body-table").append(
       `<tr>
         <td>${i + 1}</td>
-        <td class="text-capitalize">${nama[i].toLocaleUpperCase()}</td>
-        <td class="text-center">${ket}</td>
+        <td class="text-capitalize">${nama[i]}</td>
+        <td class="text-capitalize">${ket}</td>
     </tr>`
     );
   }
 }
 
-// print using jspdf
-// const printarea = $("#print");
-// const { jsPDF } = window.jspdf;
-
-// printarea.on("click", () => {
-//   const doc = new jsPDF();
-
-//   doc.autoTable({
-//     html: "#result-table",
-//     theme: "grid",
-//     headStyles: { halign: "center", font: "helvetica" },
-//     styles: { font: "times" },
-//     columnStyles: { 0: { halign: "center" }, 2: { halign: "center" } },
-//     footStyles: { halign: "center" },
-//   });
-
-//   doc.save(`absens-hes2b-${tanggal}-${ket}.pdf`);
-// });
-
+// membuat hari
 function getDayName(dateStr, locale) {
   var date = new Date(dateStr);
   return date.toLocaleDateString(locale, { weekday: "long" });
@@ -70,8 +49,12 @@ $(document).ready(function () {
     var hari = $("#hari").val();
     var nama = $("#nama").val();
     var ket = $("#ket").val();
-
     var url = `?tanggal=${tanggal}&hari=${hari}&nama=${nama}&ket=${ket}`;
+
     document.location.href = url;
   });
 });
+
+function printName() {
+  document.title = `Absensi-HES2B-${ket}-${tanggal}`;
+}

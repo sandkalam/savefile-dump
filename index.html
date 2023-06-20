@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="src/css/bootstrap.min.css" />
     <link rel="stylesheet" href="src/css/style.css" />
 
-    <title>Absensi!</title>
+    <title>Sandkalam | 🖨 Absensi !</title>
   </head>
   <body>
     <div id="main">
@@ -78,52 +78,53 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col mb-3">
-            <table id="result-table" class="table table-hover">
-              <thead>
-                <tr>
-                  <th colspan="3" class="text-center"><h3>ABSENSI</h3></th>
-                </tr>
-                <tr>
-                  <th colspan="3" class="text-center">
-                    Hukum Ekonomi Syariah 2B
-                  </th>
-                </tr>
-                <tr id="dates"></tr>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col mb-3">
+              <table id="result-table" class="table table-hover">
                 <thead>
-                  <tr class="table-success bg-hijau">
-                    <th>No.</th>
-                    <th>Nama</th>
-                    <th>Keterangan</th>
+                  <tr>
+                    <th colspan="3" class="text-center"><h3>ABSENSI</h3></th>
                   </tr>
+                  <tr>
+                    <th colspan="3" class="text-center">
+                      Hukum Ekonomi Syariah 2B
+                    </th>
+                  </tr>
+                  <tr id="dates"></tr>
+                  <thead>
+                    <tr class="table-success bg-hijau">
+                      <th>No.</th>
+                      <th>Nama</th>
+                      <th>Keterangan</th>
+                    </tr>
+                  </thead>
                 </thead>
-              </thead>
 
-              <tbody id="body-table"></tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="3" class="text-center">-- end --</td>
-                </tr>
-              </tfoot>
-            </table>
-            <div class="d-flex justify-content-end">
-              <button
-                id="cetak"
-                class="btn btn-danger ms-auto"
-                onclick="window.print()"
-              >
-                Cetak
-              </button>
-              <button id="print" class="btn btn-danger ms-auto" hidden>
-                Print
-              </button>
+                <tbody id="body-table"></tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3" class="text-center">-- end --</td>
+                  </tr>
+                </tfoot>
+              </table>
+              <div class="d-flex justify-content-end">
+                <button
+                  id="cetak"
+                  class="btn btn-danger ms-auto"
+                  onclick="window.title = printName();window.print()"
+                >
+                  Cetak
+                </button>
+                <button id="print" class="btn btn-danger ms-auto" hidden>
+                  Print
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -134,8 +135,6 @@
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
-    <!-- <script src="https://unpkg.com/jspdf-autotable@3.5.29/dist/jspdf.plugin.autotable.js"></script> -->
     <script src="src/js/bootstrap.bundle.min.js"></script>
     <script src="src/js/script.js"></script>
   </body>
