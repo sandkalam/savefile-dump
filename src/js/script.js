@@ -10,7 +10,9 @@ var ket = urlparam.get("ket");
 if (hari == null || nama == null || ket == null || tanggal == "") {
   $("#formulir").show();
 } else {
+
   $("#formulir").hide();
+  printName();
 }
 
 if (nama != null) {
