@@ -6,11 +6,12 @@ var tanggal = urlparam.get("tanggal");
 var hari = urlparam.get("hari");
 var nama = urlparam.get("nama");
 var ket = urlparam.get("ket");
+var code = urlparam.get("code");
 
 if (hari == null || nama == null || ket == null || tanggal == "") {
   $("#formulir").show();
+  // $("#formulir").hide();
 } else {
-
   $("#formulir").hide();
   printName();
 }
@@ -37,6 +38,9 @@ function getDayName(dateStr, locale) {
   return date.toLocaleDateString(locale, { weekday: "long" });
 }
 
+// memasukan uniqueid
+document.getElementById("kode").innerHTML = `Document ID : ${code}`;
+
 // make ready function
 $(document).ready(function () {
   $(document.body).on("change", "#Tanggal", function () {
@@ -52,7 +56,6 @@ $(document).ready(function () {
     var nama = $("#nama").val();
     var ket = $("#ket").val();
     var url = `?tanggal=${tanggal}&hari=${hari}&nama=${nama}&ket=${ket}`;
-
     document.location.href = url;
   });
 });
